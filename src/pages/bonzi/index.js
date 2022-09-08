@@ -44,6 +44,7 @@ class BonziBuddy extends Component {
     this.up = true
   }
   onMouseDown(e) {
+    if(e.button === 2) return;
     if (window.require) {
       this.mouseX = e.clientX
       this.mouseY = e.clientY
@@ -52,6 +53,7 @@ class BonziBuddy extends Component {
     }
   }
   onMouseUp(e) {
+    if(e.button === 2) return;
     if (window.require) {
       window.require("electron").ipcRenderer.send("windowMoved")
       cancelAnimationFrame(this.animationId)
